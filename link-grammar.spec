@@ -6,7 +6,7 @@ Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/link-grammar/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	e44a734a85fbbadf898fb935ac346f31
+# Source0-md5:	5edbeab4b9e3f61b343e68206708703e
 URL:		http://www.link.cs.cmu.edu/link/
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
