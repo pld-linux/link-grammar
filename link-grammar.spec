@@ -1,12 +1,12 @@
 Summary:	Link Grammar - a syntactic parser of English
 Summary(pl):	Link Grammar - sk³adniowy analizator jêzyka angielskiego
 Name:		link-grammar
-Version:	4.2.0
+Version:	4.1.4
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/link-grammar/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	cfa3411bf245b2ae69aa67b748458be2
+# Source0-md5:	27b921156083fe21ff7e6c96d159051c
 URL:		http://www.link.cs.cmu.edu/link/
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
