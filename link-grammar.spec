@@ -1,5 +1,5 @@
 Summary:	Link Grammar - a syntactic parser of English
-Summary(pl):	Link Grammar - sk³adniowy analizator jêzyka angielskiego
+Summary(pl.UTF-8):   Link Grammar - skÅ‚adniowy analizator jÄ™zyka angielskiego
 Name:		link-grammar
 Version:	4.2.2
 Release:	1
@@ -19,36 +19,36 @@ set of labeled links connecting pairs of words. The parser also
 produces a "constituent" representation of a sentence (showing noun
 phrases, verb phrases, etc.).
 
-%description -l pl
-Parser Link Grammar to sk³adniowy analizator jêzyka angielskiego
-oparty na gramatyce ³±czeñ - oryginalnej teorii sk³adni jêzyka
-angielskiego. Po podaniu zdania system przypisuje mu strukturê
-sk³adniow±, sk³adaj±c± siê ze zbioru oznaczonych ³±czeñ wi±¿±cych pary
-s³ów. Analizator tworzy tak¿e sk³adow± reprezentacjê zdania
-(pokazuj±c± frazy rzeczownika, frazy czasownika itp.).
+%description -l pl.UTF-8
+Parser Link Grammar to skÅ‚adniowy analizator jÄ™zyka angielskiego
+oparty na gramatyce Å‚Ä…czeÅ„ - oryginalnej teorii skÅ‚adni jÄ™zyka
+angielskiego. Po podaniu zdania system przypisuje mu strukturÄ™
+skÅ‚adniowÄ…, skÅ‚adajÄ…cÄ… siÄ™ ze zbioru oznaczonych Å‚Ä…czeÅ„ wiÄ…Å¼Ä…cych pary
+sÅ‚Ã³w. Analizator tworzy takÅ¼e skÅ‚adowÄ… reprezentacjÄ™ zdania
+(pokazujÄ…cÄ… frazy rzeczownika, frazy czasownika itp.).
 
 %package devel
 Summary:	Header files for link-grammar library
-Summary(pl):	Pliki nag³ówkowe biblioteki link-grammar
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki link-grammar
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for link-grammar library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki link-grammar.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki link-grammar.
 
 %package static
 Summary:	Static link-grammar library
-Summary(pl):	Statyczna biblioteka link-grammar
+Summary(pl.UTF-8):   Statyczna biblioteka link-grammar
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static link-grammar library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka link-grammar.
 
 %prep
