@@ -1,5 +1,5 @@
 Summary:	Link Grammar - a syntactic parser of English
-Summary(pl.UTF-8):   Link Grammar - składniowy analizator języka angielskiego
+Summary(pl.UTF-8):	Link Grammar - składniowy analizator języka angielskiego
 Name:		link-grammar
 Version:	4.2.2
 Release:	1
@@ -29,7 +29,7 @@ słów. Analizator tworzy także składową reprezentację zdania
 
 %package devel
 Summary:	Header files for link-grammar library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki link-grammar
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki link-grammar
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -41,7 +41,7 @@ Pliki nagłówkowe biblioteki link-grammar.
 
 %package static
 Summary:	Static link-grammar library
-Summary(pl.UTF-8):   Statyczna biblioteka link-grammar
+Summary(pl.UTF-8):	Statyczna biblioteka link-grammar
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
