@@ -59,7 +59,7 @@ cp -f /usr/share/automake/config.* .
 %configure \
 	--disable-binreloc
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
