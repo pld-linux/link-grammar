@@ -2,11 +2,12 @@ Summary:	Link Grammar - a syntactic parser of English
 Summary(pl.UTF-8):	Link Grammar - składniowy analizator języka angielskiego
 Name:		link-grammar
 Version:	4.2.2
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/link-grammar/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	798c165b7d7f26e60925c30515c45782
+Patch0:		format-security.patch
 URL:		http://www.link.cs.cmu.edu/link/
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -53,6 +54,7 @@ Statyczna biblioteka link-grammar.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
@@ -78,6 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE README
 %attr(755,root,root) %{_bindir}/grammar-parse
 %attr(755,root,root) %{_libdir}/liblink-grammar.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/liblink-grammar.so.4
 %{_datadir}/link-grammar
 
 %files devel
