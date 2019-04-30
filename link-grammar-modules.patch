@@ -1,0 +1,33 @@
+--- link-grammar-5.6.0/bindings/perl/Makefile.am.orig	2017-01-03 21:43:00.000000000 +0100
++++ link-grammar-5.6.0/bindings/perl/Makefile.am	2019-04-30 20:31:23.973082432 +0200
+@@ -45,7 +45,7 @@
+    -I$(top_srcdir)         \
+    -I$(top_builddir)
+ 
+-clinkgrammar_la_LDFLAGS = -version-info @VERSION_INFO@ $(PERL_LDFLAGS) -module -no-undefined
++clinkgrammar_la_LDFLAGS = -avoid-version $(PERL_LDFLAGS) -module -no-undefined
+ clinkgrammar_la_LIBADD = $(top_builddir)/link-grammar/liblink-grammar.la
+ 
+ if HAVE_HUNSPELL
+--- link-grammar-5.6.0/bindings/python/Makefile.am.orig	2018-12-29 07:17:26.000000000 +0100
++++ link-grammar-5.6.0/bindings/python/Makefile.am	2019-04-30 20:32:05.739522830 +0200
+@@ -72,7 +72,7 @@
+ endif
+ endif
+ _clinkgrammar_la_LDFLAGS =                        \
+-    -version-info @VERSION_INFO@ $(AVOID_VERSION) \
++    -avoid-version \
+     $(PYTHON2_LDFLAGS) -module -no-undefined $(PYMODULE_EXT)
+ _clinkgrammar_la_LIBADD =                         \
+     $(top_builddir)/link-grammar/liblink-grammar.la $(PYTHON2_LIBS)
+--- link-grammar-5.6.0/bindings/python3/Makefile.am.orig	2018-12-29 07:17:26.000000000 +0100
++++ link-grammar-5.6.0/bindings/python3/Makefile.am	2019-04-30 20:32:25.162750939 +0200
+@@ -83,7 +83,7 @@
+ endif
+ endif
+ _clinkgrammar_la_LDFLAGS =                        \
+-    -version-info @VERSION_INFO@ $(AVOID_VERSION) \
++    -avoid-version \
+     $(PYTHON2_LDFLAGS) -module -no-undefined $(PYMODULE_EXT)
+ _clinkgrammar_la_LIBADD =                         \
+     $(top_builddir)/link-grammar/liblink-grammar.la $(PYTHON3_LIBS)
