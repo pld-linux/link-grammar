@@ -8,7 +8,7 @@ Summary:	Link Grammar - a syntactic parser of English
 Summary(pl.UTF-8):	Link Grammar - składniowy analizator języka angielskiego
 Name:		link-grammar
 Version:	5.6.0
-Release:	3
+Release:	4
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://www.abisource.com/downloads/link-grammar/%{version}/%{name}-%{version}.tar.gz
