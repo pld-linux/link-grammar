@@ -7,12 +7,12 @@
 Summary:	Link Grammar - a syntactic parser of English
 Summary(pl.UTF-8):	Link Grammar - składniowy analizator języka angielskiego
 Name:		link-grammar
-Version:	5.6.0
-Release:	9
+Version:	5.7.0
+Release:	1
 License:	LGPL v2.1
 Group:		Libraries
-Source0:	http://www.abisource.com/downloads/link-grammar/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	513e0d0de4ab4e95bb0052afbc4217dc
+Source0:	http://www.nl.abisource.com/downloads/link-grammar/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	69c51be8cba7a23bbea5b80e41b51891
 Patch0:		%{name}-modules.patch
 URL:		http://www.link.cs.cmu.edu/link/
 BuildRequires:	autoconf >= 2.50
@@ -137,7 +137,6 @@ Wiązanie Pythona 3 do biblioteki link-grammar.
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-binreloc \
 	%{!?with_java:--disable-java-bindings} \
 	%{?with_perl:--enable-perl-bindings} \
 	%{!?with_python:--disable-python-bindings} \
