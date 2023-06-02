@@ -2,17 +2,17 @@
 # Conditional build:
 %bcond_without	java	# Java bindings
 %bcond_without	perl	# Perl bindings
-%bcond_without	python	# Python bindings
+%bcond_without	python	# Python 3 bindings
 
 Summary:	Link Grammar - a syntactic parser of English
 Summary(pl.UTF-8):	Link Grammar - składniowy analizator języka angielskiego
 Name:		link-grammar
-Version:	5.7.0
+Version:	5.12.3
 Release:	1
 License:	LGPL v2.1
 Group:		Libraries
 Source0:	http://www.nl.abisource.com/downloads/link-grammar/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	69c51be8cba7a23bbea5b80e41b51891
+# Source0-md5:	8550f72456a51d495ee020f9ece89411
 Patch0:		%{name}-modules.patch
 URL:		http://www.link.cs.cmu.edu/link/
 BuildRequires:	autoconf >= 2.50
@@ -29,7 +29,6 @@ BuildRequires:	pkgconfig
 %{?with_perl:BuildRequires:	swig-perl >= 2.0.0}
 %if %{with python}
 BuildRequires:	swig-python >= 2.0.0
-BuildRequires:	python-devel >= 1:2.6
 BuildRequires:	python3-devel >= 1:3.4
 %endif
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -101,19 +100,6 @@ Perl binding for link-grammar library.
 %description -n perl-linkgrammar -l pl.UTF-8
 Wiązanie Perla do biblioteki link-grammar.
 
-%package -n python-linkgrammar
-Summary:	Python 2 binding for link-grammar library
-Summary(pl.UTF-8):	Wiązanie Pythona 2 do biblioteki link-grammar
-Group:		Libraries/Python
-Requires:	%{name} = %{version}-%{release}
-Requires:	python-libs >= 1:2.6
-
-%description -n python-linkgrammar
-Python 2 binding for link-grammar library.
-
-%description -n python-linkgrammar -l pl.UTF-8
-Wiązanie Pythona 2 do biblioteki link-grammar.
-
 %package -n python3-linkgrammar
 Summary:	Python 3 binding for link-grammar library
 Summary(pl.UTF-8):	Wiązanie Pythona 3 do biblioteki link-grammar
@@ -143,18 +129,14 @@ Wiązanie Pythona 3 do biblioteki link-grammar.
 	--disable-silent-rules
 
 %{__make} -j1 \
-	pkgperldir=%{perl_vendorarch} \
-	python2dir=%{py_sitedir} \
-	python3dir=%{py3_sitedir}
+	pkgperldir=%{perl_vendorarch}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	pkgperldir=%{perl_vendorarch} \
-	python2dir=%{py_sitedir} \
-	python3dir=%{py3_sitedir}
+	pkgperldir=%{perl_vendorarch}
 
 %if %{with java}
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/liblink-grammar-java.la \
@@ -165,8 +147,6 @@ rm -rf $RPM_BUILD_ROOT
 	$RPM_BUILD_ROOT%{perl_vendorarch}/clinkgrammar.a
 %endif
 %if %{with python}
-%{__rm}	$RPM_BUILD_ROOT%{py_sitedir}/linkgrammar/_clinkgrammar.la \
-	$RPM_BUILD_ROOT%{py_sitedir}/linkgrammar/_clinkgrammar.a
 %{__rm}	$RPM_BUILD_ROOT%{py3_sitedir}/linkgrammar/_clinkgrammar.la \
 	$RPM_BUILD_ROOT%{py3_sitedir}/linkgrammar/_clinkgrammar.a
 
@@ -182,10 +162,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog LICENSE MAINTAINERS NEWS README.md TODO
+%attr(755,root,root) %{_bindir}/link-generator
 %attr(755,root,root) %{_bindir}/link-parser
 %attr(755,root,root) %{_libdir}/liblink-grammar.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/liblink-grammar.so.5
 %{_datadir}/link-grammar
+%{_mandir}/man1/link-generator.1*
 %{_mandir}/man1/link-parser.1*
 
 %files devel
@@ -217,17 +199,10 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %if %{with python}
-%files -n python-linkgrammar
-%defattr(644,root,root,755)
-%dir %{py_sitedir}/linkgrammar
-%attr(755,root,root) %{py_sitedir}/linkgrammar/_clinkgrammar.so
-%{py_sitedir}/linkgrammar/*.py[co]
-
 %files -n python3-linkgrammar
 %defattr(644,root,root,755)
-%{py3_sitedir}/linkgrammar.pth
 %dir %{py3_sitedir}/linkgrammar
 %attr(755,root,root) %{py3_sitedir}/linkgrammar/_clinkgrammar.so
-%{py3_sitedir}/linkgrammar/*.py
-%{py3_sitedir}/linkgrammar/__pycache__
+%{py3_sitescriptdir}/linkgrammar
+%{py3_sitescriptdir}/linkgrammar.pth
 %endif

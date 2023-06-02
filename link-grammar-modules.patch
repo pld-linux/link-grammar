@@ -1,33 +1,22 @@
---- link-grammar-5.6.0/bindings/perl/Makefile.am.orig	2017-01-03 21:43:00.000000000 +0100
-+++ link-grammar-5.6.0/bindings/perl/Makefile.am	2019-04-30 20:31:23.973082432 +0200
-@@ -45,7 +45,7 @@
-    -I$(top_srcdir)         \
-    -I$(top_builddir)
+--- link-grammar-5.12.3/bindings/perl/Makefile.am.orig	2023-06-02 17:24:16.764904515 +0200
++++ link-grammar-5.12.3/bindings/perl/Makefile.am	2023-06-02 17:24:58.628011057 +0200
+@@ -52,7 +52,7 @@ if OS_NETBSD
+ AVOID_VERSION = -avoid-version
+ endif
  
--clinkgrammar_la_LDFLAGS = -version-info @VERSION_INFO@ $(PERL_LDFLAGS) -module -no-undefined
-+clinkgrammar_la_LDFLAGS = -avoid-version $(PERL_LDFLAGS) -module -no-undefined
+-clinkgrammar_la_LDFLAGS = -version-info $(AVOID_VERSION) @VERSION_INFO@ \
++clinkgrammar_la_LDFLAGS = -avoid-version \
+ 								  $(PERL_LDFLAGS) -module -no-undefined
  clinkgrammar_la_LIBADD = $(top_builddir)/link-grammar/liblink-grammar.la
  
- if HAVE_HUNSPELL
---- link-grammar-5.6.0/bindings/python/Makefile.am.orig	2018-12-29 07:17:26.000000000 +0100
-+++ link-grammar-5.6.0/bindings/python/Makefile.am	2019-04-30 20:32:05.739522830 +0200
-@@ -72,7 +72,7 @@
- endif
- endif
- _clinkgrammar_la_LDFLAGS =                        \
--    -version-info @VERSION_INFO@ $(AVOID_VERSION) \
-+    -avoid-version \
-     $(PYTHON2_LDFLAGS) -module -no-undefined $(PYMODULE_EXT)
- _clinkgrammar_la_LIBADD =                         \
-     $(top_builddir)/link-grammar/liblink-grammar.la $(PYTHON2_LIBS)
---- link-grammar-5.6.0/bindings/python3/Makefile.am.orig	2018-12-29 07:17:26.000000000 +0100
-+++ link-grammar-5.6.0/bindings/python3/Makefile.am	2019-04-30 20:32:25.162750939 +0200
-@@ -83,7 +83,7 @@
- endif
+--- link-grammar-5.12.3/bindings/python/Makefile.am.orig	2023-06-02 06:44:56.982717281 +0200
++++ link-grammar-5.12.3/bindings/python/Makefile.am	2023-06-02 17:23:33.231807020 +0200
+@@ -88,7 +88,7 @@ if OS_NETBSD
+ AVOID_VERSION = -avoid-version
  endif
  _clinkgrammar_la_LDFLAGS =                        \
 -    -version-info @VERSION_INFO@ $(AVOID_VERSION) \
 +    -avoid-version \
-     $(PYTHON2_LDFLAGS) -module -no-undefined $(PYMODULE_EXT)
+     $(PYTHON_LDFLAGS) -module -no-undefined $(PYMODULE_EXT)
  _clinkgrammar_la_LIBADD =                         \
-     $(top_builddir)/link-grammar/liblink-grammar.la $(PYTHON3_LIBS)
+     $(top_builddir)/link-grammar/liblink-grammar.la $(PYTHON_LIBS)
