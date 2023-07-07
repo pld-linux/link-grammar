@@ -15,6 +15,7 @@ Source0:	http://www.nl.abisource.com/downloads/link-grammar/%{version}/%{name}-%
 # Source0-md5:	8550f72456a51d495ee020f9ece89411
 Patch0:		%{name}-modules.patch
 URL:		http://www.link.cs.cmu.edu/link/
+%{?with_java:BuildRequires:	ant}
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gcc >= 6:4.7
