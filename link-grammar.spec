@@ -154,7 +154,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm}	$RPM_BUILD_ROOT%{py3_sitedir}/linkgrammar/_clinkgrammar.la \
 	$RPM_BUILD_ROOT%{py3_sitedir}/linkgrammar/_clinkgrammar.a
 
-%py_postclean
 %endif
 
 %clean
