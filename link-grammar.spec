@@ -21,7 +21,7 @@ URL:		http://www.link.cs.cmu.edu/link/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gcc >= 6:4.7
-%{?with_java:%{?use_jdk:%buildrequires_jdk}%{!?use_jdk:BuildRequires:	jdk}}
+%{?with_java:%buildrequires_jdk}
 BuildRequires:	hunspell-devel
 BuildRequires:	libedit-devel
 BuildRequires:	libstdc++-devel >= 6:4.7
