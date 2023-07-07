@@ -4,6 +4,8 @@
 %bcond_without	perl	# Perl bindings
 %bcond_without	python	# Python 3 bindings
 
+%{?with_java:%{?use_default_jdk}}
+
 Summary:	Link Grammar - a syntactic parser of English
 Summary(pl.UTF-8):	Link Grammar - składniowy analizator języka angielskiego
 Name:		link-grammar
@@ -19,7 +21,7 @@ URL:		http://www.link.cs.cmu.edu/link/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gcc >= 6:4.7
-%{?with_java:BuildRequires:	jdk}
+%{?with_java:%{?use_jdk:%buildrequires_jdk}%{!?use_jdk:BuildRequires:	jdk}}
 BuildRequires:	hunspell-devel
 BuildRequires:	libedit-devel
 BuildRequires:	libstdc++-devel >= 6:4.7
@@ -32,7 +34,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	swig-python >= 2.0.0
 BuildRequires:	python3-devel >= 1:3.4
 %endif
-BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	rpmbuild(macros) >= 2.021
 BuildRequires:	sqlite3-devel >= 3.0.0
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -123,6 +125,7 @@ Wiązanie Pythona 3 do biblioteki link-grammar.
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
+%{?with_java:export JAVA_HOME="%{java_home}"}
 %configure \
 	%{!?with_java:--disable-java-bindings} \
 	%{?with_perl:--enable-perl-bindings} \
