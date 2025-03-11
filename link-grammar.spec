@@ -31,8 +31,8 @@ BuildRequires:	pcre2-8-devel
 BuildRequires:	pkgconfig
 %{?with_perl:BuildRequires:	swig-perl >= 2.0.0}
 %if %{with python}
-BuildRequires:	swig-python >= 2.0.0
 BuildRequires:	python3-devel >= 1:3.4
+BuildRequires:	swig-python >= 2.0.0
 %endif
 BuildRequires:	rpmbuild(macros) >= 2.021
 BuildRequires:	sqlite3-devel >= 3.0.0
@@ -118,7 +118,7 @@ Wiązanie Pythona 3 do biblioteki link-grammar.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
 %{__libtoolize}
