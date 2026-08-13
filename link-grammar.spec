@@ -16,6 +16,7 @@ Group:		Libraries
 Source0:	http://www.nl.abisource.com/downloads/link-grammar/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	8550f72456a51d495ee020f9ece89411
 Patch0:		%{name}-modules.patch
+Patch1:		includes.patch
 URL:		http://www.link.cs.cmu.edu/link/
 %{?with_java:BuildRequires:	ant}
 BuildRequires:	autoconf >= 2.50
@@ -120,6 +121,7 @@ Wiązanie Pythona 3 do biblioteki link-grammar.
 %prep
 %setup -q
 %patch -P 0 -p1
+%patch -P 1 -p1
 
 %build
 %{__libtoolize}

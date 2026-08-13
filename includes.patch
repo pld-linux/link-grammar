@@ -1,0 +1,39 @@
+--- link-grammar-5.12.3/link-grammar/dict-common/file-utils.c.orig	2023-01-15 07:56:37.000000000 +0100
++++ link-grammar-5.12.3/link-grammar/dict-common/file-utils.c	2026-08-13 20:47:39.373894416 +0200
+@@ -26,6 +26,10 @@
+ #include <stdlib.h>
+ #include <string.h>
+ 
++#ifdef HAVE_THREADS_H
++#include <threads.h>
++#endif
++
+ #include "file-utils.h"
+ #include "error.h"                      // verbosity_level
+ #include "link-includes.h"
+--- link-grammar-5.12.3/link-grammar/dict-common/print-dict.c.orig	2023-03-09 14:40:10.000000000 +0100
++++ link-grammar-5.12.3/link-grammar/dict-common/print-dict.c	2026-08-13 20:48:01.980469451 +0200
+@@ -15,6 +15,10 @@
+ #include <inttypes.h>                   // format macros
+ #include <math.h>                       // fabsf signbit
+ 
++#ifdef HAVE_THREADS_H
++#include <threads.h>
++#endif
++
+ #include "api-structures.h"             // Parse_Options_s  (seems hacky to me)
+ #include "dict-common.h"
+ #include "dict-defines.h"
+--- link-grammar-5.12.3/link-grammar/error.c.orig	2023-01-16 05:38:58.000000000 +0100
++++ link-grammar-5.12.3/link-grammar/error.c	2026-08-13 20:48:37.120328319 +0200
+@@ -16,6 +16,10 @@
+ #include <string.h>
+ #include <stdarg.h>
+ 
++#ifdef HAVE_THREADS_H
++#include <threads.h>
++#endif
++
+ #include "error.h"
+ #include "api-structures.h"   // For Sentence_s
+ #include "print/print.h"      // For print_sentence_context()
