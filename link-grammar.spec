@@ -19,6 +19,7 @@ Patch0:		%{name}-modules.patch
 URL:		http://www.link.cs.cmu.edu/link/
 %{?with_java:BuildRequires:	ant}
 BuildRequires:	autoconf >= 2.50
+BuildRequires:	autoconf-archive
 BuildRequires:	automake
 BuildRequires:	gcc >= 6:4.7
 %{?with_java:%buildrequires_jdk}
